@@ -28,13 +28,4 @@ public class Constants
     {
         public static final String NO_ENVIRONMENT = "No environment specified";
     }
-    
-    /**
-     * Stores labels on the site
-     */
-    public class Label
-    {
-        public static final String SIGN_IN = "Sign in";
-        public static final String LISTS = "Lists";
-    }
 }

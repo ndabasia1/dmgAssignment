@@ -14,7 +14,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 /**
- * Steps relating to the cart page are found here.
+ * Steps relating to the article page are found here.
  */
 public class ArticleStepDef
 {
@@ -109,8 +109,8 @@ public class ArticleStepDef
     @When("^I click the fullscreen icon on the embedded video$")
     public void clickScreenSizeVideo()
     {
-//        scenarioContext.setContext(ScenarioContext.Context.GENERAL.VIDEO_SIZE, articlePage.getVideoElement().getAttribute("style"));
-//        articlePage.clickScreenSizeVideo();
+        scenarioContext.setContext(ScenarioContext.Context.GENERAL.VIDEO_SIZE, articlePage.getVideoSize().getAttribute("style"));
+        articlePage.clickScreenSizeVideo();
     }
 
     /**
@@ -170,7 +170,7 @@ public class ArticleStepDef
     @Then("^the video will change size$")
     public void checkVideoSize()
     {
-//        articlePage.waitForVideoSizeToChange(scenarioContext.getScenarioContextAsString(ScenarioContext.Context.GENERAL.VIDEO_SIZE));
+        articlePage.waitForVideoSizeToChange(scenarioContext.getScenarioContextAsString(ScenarioContext.Context.GENERAL.VIDEO_SIZE));
     }
     
     /**

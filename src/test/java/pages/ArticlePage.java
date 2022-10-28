@@ -11,7 +11,7 @@ import stepDefs.Hooks;
 import utilities.CommonMethods;
 
 /**
- * This page contains methods and WebElements relating to the cart page
+ * This page contains methods and WebElements relating to the article page
  */
 public class ArticlePage extends BasePage
 {
@@ -74,13 +74,23 @@ public class ArticlePage extends BasePage
     }
     
     /**
+     * Get the video maximise element icon
+     * <p>
+     * @return video Returns the video maximise element
+     */
+    public WebElement getVideoMaximise()
+    {
+        return driver.findElement(By.cssSelector("div[itemprop='video'] .item .vjs-control-bar .vjs-fullscreen-control"));
+    }
+    
+    /**
      * Get the video element
      * <p>
      * @return video Returns the video element
      */
-    public WebElement getVideoElement()
+    public WebElement getVideoSize()
     {
-        return driver.findElement(By.cssSelector(".vjs-video-container .vjs-fullscreen-control")).findElement(By.xpath("../preceding-sibling::*[4]"));
+        return getVideoMaximise().findElement(By.xpath("../preceding-sibling::*[4]"));
     }
     
     /**
@@ -132,7 +142,7 @@ public class ArticlePage extends BasePage
      */
     public void clickScreenSizeVideo()
     {
-        WebElement videoSizeControl =  driver.findElement(By.cssSelector(".vjs-video-container .vjs-fullscreen-control"));
+        WebElement videoSizeControl =  getVideoMaximise();      
         CommonMethods.scrollElementIntoView(driver, videoSizeControl);
         CommonMethods.clickElement(driver, videoSizeControl);
     }
@@ -144,7 +154,7 @@ public class ArticlePage extends BasePage
      */
     public void waitForVideoSizeToChange(String videoSize)
     {
-        wait.until(ExpectedConditions.not(ExpectedConditions.attributeToBe(getVideoElement(), "style", videoSize)));
+        wait.until(ExpectedConditions.not(ExpectedConditions.attributeToBe(getVideoSize(), "style", videoSize)));
     }
     
     /**

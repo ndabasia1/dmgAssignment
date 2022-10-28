@@ -16,9 +16,9 @@ Feature: DMG Home Assignment scenarios
     And I hover over the gallery
     And I click facebook on the gallery
     Then the facebook dialog will open
-    When I click the fullscreen icon on the embedded video
-    Then the video will change size
-    When I click the fullscreen icon on the embedded video
-    Then the video will change size
+    #When I click the fullscreen icon on the embedded video
+    #Then the video will change size
+    #When I click the fullscreen icon on the embedded video
+    #Then the video will change size
     When I navigate to Liverpool in the league table
     Then the points and position will be displayed
